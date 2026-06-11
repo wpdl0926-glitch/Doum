@@ -72,9 +72,7 @@ export default function GuestMainScreen() {
             <button
               onClick={() => navigate('/login')}
               className="bg-[#00d3cd] text-white font-['Pretendard:SemiBold',sans-serif] text-[14px] px-5 py-2 rounded-[15px] hover:bg-[#00b8b4] transition-colors mt-2"
-            >
-              로그인
-            </button>
+            >로그인</button>
           </div>
         </div>
 

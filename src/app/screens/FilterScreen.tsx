@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import { ArrowLeft, MapPin, Calendar, Clock, ZoomIn, ZoomOut, Maximize2 } from 'lucide-react';
 import Layout from '../components/Layout';
 import mapImage from '../../imports/___________2026-05-21_______6.37.57.png';
-import Union from '../../imports/Union/Union';
+import headerLogoImage from '../../imports/___________2026-05-29______5.16.47.png';
 
 export default function FilterScreen() {
   const navigate = useNavigate();
@@ -47,11 +47,13 @@ export default function FilterScreen() {
   ];
 
   const timeSlots = [
-    { id: 'slot1', label: '07:00-10:00' },
-    { id: 'slot2', label: '10:00-13:00' },
-    { id: 'slot3', label: '13:00-16:00' },
-    { id: 'slot4', label: '16:00-19:00' },
-    { id: 'slot5', label: '19:00-22:00' },
+    { id: 'slot1', label: '07:00-09:00' },
+    { id: 'slot2', label: '09:00-11:00' },
+    { id: 'slot3', label: '11:00-13:00' },
+    { id: 'slot4', label: '13:00-15:00' },
+    { id: 'slot5', label: '15:00-17:00' },
+    { id: 'slot6', label: '17:00-19:00' },
+    { id: 'slot7', label: '19:00-21:00' },
   ];
 
   const toggleTimeSlot = (timeSlotId: string) => {
@@ -211,12 +213,11 @@ export default function FilterScreen() {
         <div className="px-[34px] pt-[40px] pb-[15px]">
           <div className="flex items-center justify-between mb-4">
             <button onClick={() => navigate('/main')} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <div className="w-[30px] h-[30px]">
-                <Union />
-              </div>
-              <p className="font-['Pretendard:ExtraBold',sans-serif] text-[16px] text-black">
-                DOUM
-              </p>
+              <img
+                src={headerLogoImage}
+                alt="DOUM"
+                className="h-[54px] w-auto object-contain -ml-[10px]"
+              />
             </button>
           </div>
           <div className="flex items-center justify-between mb-8">

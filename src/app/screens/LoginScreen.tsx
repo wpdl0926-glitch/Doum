@@ -77,22 +77,12 @@ export default function LoginScreen() {
           <div className="space-y-3 mb-5">
             <button
               onClick={handleLogin}
-              className="w-full bg-[#fee500] text-[#191919] font-['Pretendard:SemiBold',sans-serif] text-[12px] py-2 px-4 rounded-[8px] hover:opacity-90 transition-opacity"
+              className="w-full bg-[#fee500] text-[#191919] font-['Pretendard:SemiBold',sans-serif] rounded-[8px] hover:opacity-90 transition-opacity px-[16px] py-[15px] text-[14px]"
             >
               카카오로 계속하기
             </button>
-            <button
-              onClick={handleLogin}
-              className="w-full bg-[#f7f7f7] text-[#1f1f1f] font-['Pretendard:SemiBold',sans-serif] text-[12px] py-2 px-4 rounded-[8px] hover:opacity-90 transition-opacity"
-            >
-              Google 계정으로 로그인
-            </button>
-            <button
-              onClick={handleLogin}
-              className="w-full bg-[#f7f7f7] text-[#1f1f1f] font-['Pretendard:SemiBold',sans-serif] text-[12px] py-2 px-4 rounded-[8px] hover:opacity-90 transition-opacity"
-            >
-              Apple로 계속하기
-            </button>
+            
+            
           </div>
 
           <div className="flex items-center justify-center gap-2">

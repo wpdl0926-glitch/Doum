@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router';
 import { ArrowLeft, Coins, TrendingUp, Gift, Award } from 'lucide-react';
 import Layout from '../components/Layout';
-import Union from '../../imports/Union/Union';
+import headerLogoImage from '../../imports/___________2026-05-29______5.16.47.png';
 
 export default function CreditScreen() {
   const navigate = useNavigate();
@@ -63,12 +63,11 @@ export default function CreditScreen() {
         <div className="px-[34px] pt-[40px] pb-[15px]">
           <div className="flex items-center justify-between mb-4">
             <button onClick={() => navigate('/main')} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <div className="w-[30px] h-[30px]">
-                <Union />
-              </div>
-              <p className="font-['Pretendard:ExtraBold',sans-serif] text-[16px] text-black">
-                DOUM
-              </p>
+              <img
+                src={headerLogoImage}
+                alt="DOUM"
+                className="h-[54px] w-auto object-contain -ml-[10px]"
+              />
             </button>
           </div>
           <div className="mb-6">

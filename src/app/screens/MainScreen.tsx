@@ -199,6 +199,22 @@ export default function MainScreen() {
   const systemNotifications = [
     {
       id: 1,
+      type: 'confirmed',
+      title: '매칭이 확정되었습니다',
+      description: '창문 닦기 도움 일정이 확정되었어요',
+      time: '1시간 전',
+      detail: '임대수 어르신',
+    },
+    {
+      id: 2,
+      type: 'cancel',
+      title: '일정이 취소되었습니다',
+      description: '장보기 도움 일정이 취소되었어요',
+      time: '방금 전',
+      detail: '박철수 할아버지',
+    },
+    {
+      id: 3,
       type: 'review',
       title: '할머니가 후기를 남겼어요',
       description: 'TV 연결 도움 활동에 대한 후기',
@@ -206,7 +222,7 @@ export default function MainScreen() {
       detail: '김말숙 할머니',
     },
     {
-      id: 2,
+      id: 4,
       type: 'credit',
       title: '크레딧이 적립되었어요',
       description: '+2 크레딧이 적립되었어요',
@@ -214,7 +230,7 @@ export default function MainScreen() {
       detail: '오전 11:00 ㅣ 다로리 카페 옆',
     },
     {
-      id: 3,
+      id: 5,
       type: 'level',
       title: '레벨이 올랐어요!',
       description: 'LV.2 → LV.3으로 레벨업',
@@ -432,7 +448,7 @@ export default function MainScreen() {
                 <div className="flex justify-between items-start mb-2">
                   <div className="flex gap-3">
                     <div className="w-[40px] h-[40px] rounded-full bg-[#A0EDD9] flex items-center justify-center flex-shrink-0">
-                      <span className="text-[20px]">{notification.type === 'credit' ? '⭐' : '🎉'}</span>
+                      <span className="text-[20px]">{notification.type === 'credit' ? '⭐' : notification.type === 'cancel' ? '❌' : notification.type === 'confirmed' ? '✅' : '🎉'}</span>
                     </div>
                     <div>
                       <p className="font-['Pretendard:SemiBold',sans-serif] text-[15px] text-[#383838] mb-1">
@@ -510,12 +526,17 @@ export default function MainScreen() {
                       {systemNotifications.map((notification) => (
                         <div
                           key={notification.id}
+                          onClick={() => {
+                            if (notification.type === 'confirmed') {
+                              navigate('/confirmed/60');
+                            }
+                          }}
                           className="bg-[rgba(197,197,197,0.05)] border border-[#f0f0f0] rounded-[15px] p-3 hover:bg-[rgba(0,211,205,0.05)] transition-colors cursor-pointer"
                         >
                           <div className="flex gap-3">
                             <div className="w-[35px] h-[35px] rounded-full flex items-center justify-center flex-shrink-0 bg-[#a0e9ed]">
                               <span className="text-[18px]">
-                                {notification.type === 'credit' ? '⭐' : notification.type === 'review' ? '💬' : '🎉'}
+                                {notification.type === 'credit' ? '⭐' : notification.type === 'review' ? '💬' : notification.type === 'cancel' ? '❌' : notification.type === 'confirmed' ? '✅' : '🎉'}
                               </span>
                             </div>
                             <div className="flex-1">

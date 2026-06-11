@@ -6,6 +6,8 @@ import GuestMainScreen from "./screens/GuestMainScreen";
 import RequestDetailScreen from "./screens/RequestDetailScreen";
 import AcceptRequestScreen from "./screens/AcceptRequestScreen";
 import RequestAcceptedScreen from "./screens/RequestAcceptedScreen";
+import RequestCanceledScreen from "./screens/RequestCanceledScreen";
+import MatchConfirmedScreen from "./screens/MatchConfirmedScreen";
 import VerificationScreen from "./screens/VerificationScreen";
 import CreditEarnedScreen from "./screens/CreditEarnedScreen";
 import MyActivityScreen from "./screens/MyActivityScreen";
@@ -48,6 +50,16 @@ export const router = createBrowserRouter([
   {
     path: "/accepted/:id",
     element: <RequestAcceptedScreen />,
+    errorElement: <ErrorBoundary />,
+  },
+  {
+    path: "/canceled/:id",
+    element: <RequestCanceledScreen />,
+    errorElement: <ErrorBoundary />,
+  },
+  {
+    path: "/confirmed/:id",
+    element: <MatchConfirmedScreen />,
     errorElement: <ErrorBoundary />,
   },
   {

@@ -25,9 +25,22 @@ export default function VerificationScreen() {
         </p>
 
         <div className="space-y-4 mb-8">
+          {/* 활동 요약 */}
+          <div className="bg-[#f5f5f5] rounded-[15px] p-4">
+            <p className="font-['Pretendard:Bold',sans-serif] text-[15px] text-[#383838] mb-2">
+              TV 연결 도움
+            </p>
+            <p className="font-['Pretendard:Medium',sans-serif] text-[13px] text-[#898989] mb-1">
+              김말숙 할머니
+            </p>
+            <p className="font-['Pretendard:Medium',sans-serif] text-[11px] text-[#787878]">
+              오후 3:00 ㅣ 다로리 동쪽 마을
+            </p>
+          </div>
+
           <div className="bg-[#f5f5f5] rounded-[15px] p-4">
             <p className="font-['Pretendard:SemiBold',sans-serif] text-[13px] text-[#787878] mb-3">
-              완료 사진
+              완료 사진 *필수
             </p>
             <button
               onClick={() => setPhotoTaken(true)}
@@ -50,31 +63,26 @@ export default function VerificationScreen() {
           </div>
 
           <div className="bg-[#f5f5f5] rounded-[15px] p-4">
-            <p className="font-['Pretendard:SemiBold',sans-serif] text-[13px] text-[#787878] mb-3">
+            <p className="font-['Pretendard:Bold',sans-serif] text-[15px] text-[#383838] mb-1">
+              오늘 도움은 어땠나요?
+            </p>
+            <p className="font-['Pretendard:Medium',sans-serif] text-[12px] text-[#898989] mb-3">
               활동 후기 (선택)
             </p>
             <textarea
               value={review}
               onChange={(e) => setReview(e.target.value)}
               placeholder="할머니와의 따뜻한 경험을 공유해주세요"
-              className="w-full bg-white rounded-[10px] px-4 py-3 font-['Pretendard:Medium',sans-serif] text-[15px] border border-[#e9e9e9] min-h-[120px] resize-none"
+              className="w-full bg-white rounded-[10px] px-4 py-3 font-['Pretendard:Medium',sans-serif] text-[15px] border border-[#e9e9e9] min-h-[60px] resize-none"
             />
           </div>
 
           <div className="bg-[rgba(0,230,216,0.1)] border border-[#00e6d8] rounded-[15px] p-4">
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="font-['Pretendard:SemiBold',sans-serif] text-[13px] text-[#787878] mb-1">
-                  완료한 도움
-                </p>
-                <p className="font-['Pretendard:Bold',sans-serif] text-[16px] text-[#383838]">
-                  TV 연결 도움
-                </p>
-              </div>
+            <div className="flex items-center justify-between">
+              <p className="font-['Pretendard:SemiBold',sans-serif] text-[14px] text-[#787878]">
+                적립 예정
+              </p>
               <div className="text-right">
-                <p className="font-['Pretendard:SemiBold',sans-serif] text-[13px] text-[#787878] mb-1">
-                  적립 예정
-                </p>
                 <p className="font-['Pretendard:Bold',sans-serif] text-[19px] text-[#00d3cd]">
                   +30 크레딧
                 </p>

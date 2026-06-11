@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from 'react-router';
-import { ArrowLeft, ShoppingBag, Package, Smartphone, Sprout, Car, Archive, ChefHat, Tv, Box, Dog, Grid, FileText, Axe, Refrigerator, Pill, Droplets, Lightbulb, WashingMachine, Fence, Phone, BookOpen, Leaf, Armchair, Radio, Carrot, Image, Umbrella, PaintBucket, Calendar, MessageCircle, Fan, PaintRoller, Brush, Boxes, Footprints, TreePine, CookingPot, Hammer, Camera, Home, Square, HelpCircle } from 'lucide-react';
+import { ArrowLeft, ShoppingBag, Package, Smartphone, Sprout, Car, Archive, ChefHat, Tv, Box, Dog, Grid, FileText, Axe, Refrigerator, Pill, Droplets, Lightbulb, WashingMachine, Fence, Phone, BookOpen, Leaf, Armchair, Radio, Carrot, Image, Umbrella, PaintBucket, Calendar, MessageCircle, Fan, PaintRoller, Brush, Boxes, Footprints, TreePine, CookingPot, Hammer, Camera, Home, Square, HelpCircle, MapPin } from 'lucide-react';
 import Layout from '../components/Layout';
 import { useEffect, useRef } from 'react';
+import mapImage from '../../imports/image-1.png';
 
 const getIconByKeyword = (keywords: string[]) => {
   const keywordStr = keywords.join(' ');
@@ -816,7 +817,28 @@ export default function RequestDetailScreen() {
             </div>
           </div>
 
-          <div className="space-y-4 mb-8">
+          <div className="space-y-4 mb-[100px]">
+            <div className="flex gap-3">
+              <div className="flex-1 rounded-[15px] p-4 bg-[#dcf8f4] border border-[#00d3cd]">
+                <p className="font-['Pretendard:SemiBold',sans-serif] text-[13px] text-[#787878] mb-2">방문 일자</p>
+                <p className="font-['Pretendard:Bold',sans-serif] text-[14px] text-black text-[#000000]">{request.date}</p>
+              </div>
+
+              <div className="flex-1 rounded-[15px] p-4 border border-[#00d3cd] bg-[#dcf8f4]">
+                <p className="font-['Pretendard:SemiBold',sans-serif] text-[13px] text-[#787878] mb-2">지원 현황</p>
+                <div className="flex items-center gap-2">
+                  <p className="font-['Pretendard:Bold',sans-serif] text-[14px] text-black">
+                    {request.currentApplicants}/{request.totalSlots}명 지원
+                  </p>
+                  {request.currentApplicants >= request.totalSlots && (
+                    <span className="bg-[#ff9800] px-2 py-1 rounded-full">
+                      <p className="font-['Pretendard:SemiBold',sans-serif] text-[10px] text-white">마감</p>
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+
             <div className="bg-[#f5f5f5] rounded-[15px] p-4">
               <p className="font-['Pretendard:SemiBold',sans-serif] text-[13px] text-[#787878] mb-2">도움 내용</p>
               <p className="font-['Pretendard:Medium',sans-serif] text-[13px] text-[#383838] leading-[1.6]">
@@ -830,49 +852,48 @@ export default function RequestDetailScreen() {
             </div>
 
             <div className="bg-[#f5f5f5] rounded-[15px] p-4">
-              <p className="font-['Pretendard:SemiBold',sans-serif] text-[13px] text-[#787878] mb-2">방문 희망 일자</p>
-              <p className="font-['Pretendard:Bold',sans-serif] text-[14px] text-black">{request.date}</p>
-            </div>
-
-            <div className="bg-[#f5f5f5] rounded-[15px] p-4">
               <p className="font-['Pretendard:SemiBold',sans-serif] text-[13px] text-[#787878] mb-2">방문 희망 시간</p>
               <p className="font-['Pretendard:Bold',sans-serif] text-[14px] text-black">{request.time}</p>
             </div>
 
-            <div className="bg-[#f5f5f5] rounded-[15px] p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <p className="font-['Pretendard:SemiBold',sans-serif] text-[13px] text-[#787878]">장소</p>
-                <p className="font-['Pretendard:Regular',sans-serif] text-[10px] text-[#a2a2a2]">약속 확정 시 구체적인 주소 제공</p>
+            <div className="bg-[#f5f5f5] rounded-[15px] overflow-hidden">
+              <div className="pt-[16px] pb-0 px-[16px]">
+                <div className="flex gap-[20px] items-center mb-0">
+                  <p className="font-['Pretendard:SemiBold',sans-serif] leading-[19.5px] text-[13px] text-[#787878] whitespace-nowrap">장소</p>
+                  <p className="font-['Inter:Regular','Noto_Sans_KR:Regular',sans-serif] font-normal leading-[15px] text-[10px] text-[#a2a2a2] whitespace-nowrap">약속 확정 시 구체적인 주소 제공</p>
+                </div>
+                <p className="font-['Pretendard:Bold',sans-serif] leading-[21px] text-[14px] text-black whitespace-nowrap pb-[12px] pt-[8px]">{request.location}</p>
               </div>
-              <p className="font-['Pretendard:Bold',sans-serif] text-[14px] text-black">{request.location}</p>
+              <div className="h-[200px] relative flex items-center justify-center pt-0 pb-[20px] px-[15px]">
+                <img
+                  src={mapImage}
+                  alt={`${request.location} 지도`}
+                  className="w-full h-full object-cover rounded-[10px]"
+                />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <MapPin className="w-10 h-10 text-[#00d3cd] fill-[#00d3cd] drop-shadow-lg" />
+                </div>
+              </div>
             </div>
 
-            <div className="bg-[#f5f5f5] rounded-[15px] p-4">
-              <p className="font-['Pretendard:SemiBold',sans-serif] text-[13px] text-[#787878] mb-2">지원 현황</p>
-              <div className="flex items-center gap-2">
-                <p className="font-['Pretendard:Bold',sans-serif] text-[14px] text-black">
-                  {request.currentApplicants}/{request.totalSlots}명 지원
-                </p>
-                {request.currentApplicants >= request.totalSlots && (
-                  <span className="bg-[#ff9800] px-2 py-1 rounded-full">
-                    <p className="font-['Pretendard:SemiBold',sans-serif] text-[10px] text-white">마감</p>
-                  </span>
-                )}
-              </div>
+            <div className="text-center py-4 mb-[200px]">
+              <p className="font-['Pretendard:Medium',sans-serif] text-[12px] text-[#898989]">🔒 동행인과 연락처 정보는 매칭 확정 후 제공됩니다</p>
             </div>
           </div>
 
-          <button
-            onClick={() => navigate(`/accept/${id}`)}
-            disabled={request.currentApplicants >= request.totalSlots}
-            className={`sticky bottom-[24px] w-full font-['Pretendard:Bold',sans-serif] text-[16px] py-4 rounded-[15px] shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] z-10 mb-[50px] ${
-              request.currentApplicants >= request.totalSlots
-                ? 'bg-[#c4c4c4] text-[#787878] cursor-not-allowed'
-                : 'bg-[#00d3cd] text-white'
-            }`}
-          >
-            {request.currentApplicants >= request.totalSlots ? '지원이 마감되었습니다' : '도움 요청 수락하기'}
-          </button>
+          <div className="fixed bottom-[100px] left-1/2 -translate-x-1/2 w-full max-w-[calc(100%-64px)] z-10 flex justify-center">
+            <button
+              onClick={() => navigate(`/accept/${id}`)}
+              disabled={request.currentApplicants >= request.totalSlots}
+              className={`w-[327px] font-['Pretendard:Bold',sans-serif] text-[16px] py-4 rounded-[15px] shadow-[0px_4px_10px_rgba(0,0,0,0.2)] ${
+                request.currentApplicants >= request.totalSlots
+                  ? 'bg-[#c4c4c4] text-[#787878] cursor-not-allowed'
+                  : 'bg-[#00d3cd] text-white'
+              }`}
+            >
+              {request.currentApplicants >= request.totalSlots ? '지원이 마감되었습니다' : '도움 요청 수락하기'}
+            </button>
+          </div>
         </div>
       </div>
     </div>

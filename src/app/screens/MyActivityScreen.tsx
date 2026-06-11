@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { ArrowLeft, TrendingUp, Award, Calendar, Camera, X } from 'lucide-react';
 import Layout from '../components/Layout';
-import Union from '../../imports/Union/Union';
+import headerLogoImage from '../../imports/___________2026-05-29______5.16.47.png';
 import photoImage from '../../imports/_____-1.png';
 
 export default function MyActivityScreen() {
@@ -57,12 +57,11 @@ export default function MyActivityScreen() {
       <div className="px-[34px] pt-[40px] pb-[15px]">
         <div className="flex items-center justify-between mb-4">
           <button onClick={() => navigate('/main')} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <div className="w-[30px] h-[30px]">
-              <Union />
-            </div>
-            <p className="font-['Pretendard:ExtraBold',sans-serif] text-[16px] text-black">
-              DOUM
-            </p>
+            <img
+              src={headerLogoImage}
+              alt="DOUM"
+              className="h-[54px] w-auto object-contain -ml-[10px]"
+            />
           </button>
         </div>
         <h1 className="font-['Pretendard:Bold',sans-serif] text-[24px] text-[#383838] mb-8">
